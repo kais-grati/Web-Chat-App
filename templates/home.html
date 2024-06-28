@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='ressources/logo.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+</head>
+<body>
+
+    <div class="logo">
+        <h1>Chat App</h1>
+        <a href="/">
+            <img src="{{ url_for('static', filename='ressources/logo.png')}}">
+        </a>
+    </div>
+    <text>{{output}}</text>
+    <img class="fond"src="{{ url_for('static', filename='ressources/fond-logo.png')}}">
+    <img class="phone" src="{{ url_for('static', filename='ressources/phone.png')}}">
+
+    <a class ="register" href="{{url_for('register')}}" >Get Started</a>
+    <p class="title">Chat faster, Chat safer.<p>
+    <p class="text">Avec Chat App communiquez avec vos proches et vos amis d'une manière sécurisée et rapide.<p>
+    <div class="form">
+        <form method="POST" action="">
+          {{login_box.hidden_tag()}}
+          {{login_box.username}}
+          {{login_box.passwd}}
+          {{login_box.submit}}
+        </form>
+
+        <a class="form" href="{{url_for('register')}}" >Don't have an account? Sign Up</a>
+    </div>
+
+
+</body>
+</html>

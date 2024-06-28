@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="{{ url_for('static', filename='ressources/logo.png')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
+        <title>Chat Room</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js "></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+
+        <h1 class="header">Logged in as <span>{{session.username}}</span></h1>   
+        <a id="Disconnect" class="header" href="{{ url_for('logout')}}">Disconnect</a>
+
+        <!-- <div id="users">
+            <a>{{connected}}</a>
+        </div> -->
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+    
+        var socket = io.connect("http://127.0.0.1:5000");
+        
+        socket.on('connect', function() {
+            socket.send('(-@+@-) {{session.username}} has connected');
+        });
+
+        socket.on('message', function(msg) {
+            $("#messages").append('<li>'+'<p>'+ msg +'</p>'+'</li>');
+            $('#messages').stop().animate({
+                scrollTop: $('#messages')[0].scrollHeight
+            }, 800);
+        });
+    
+        $('#sendbutton').on('click', function() {
+            if ($('#myMessage').val().length > 500) {window.alert('Message is too long!')} else {
+                console.log($('#myMessage').val());
+                socket.send('[' +'{{session.username}}'+ '] ' + $('#myMessage').val());
+                $('#myMessage').val('');
+            }
+        });
+        $(document).keyup(function(event) {
+            if (event.which === 13) {
+                if ($('#myMessage').val().length > 500) {window.alert('Message is too long!')} else {
+                console.log($('#myMessage').val());
+                socket.send('[' +'{{session.username}}'+ '] ' + $('#myMessage').val());
+                $('#myMessage').val('');
+            }
+            }
+        });
+    });
+    </script>
+    <ul id="messages"></ul>
+    <input type="text" id="myMessage">
+    <button id="sendbutton"><img src="{{ url_for('static', filename='ressources/logo.png')}}"></button>
+    </body>
+    </html>
+

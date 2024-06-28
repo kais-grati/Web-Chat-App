@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+#Disconnect{
+    text-decoration: none;
+    color: blueviolet;
+    font-size: 25px;
+    padding-left: 48vw; 
+}
+
+.header{
+    width: 100vw;
+    text-align: center;
+}
+
+.header span{
+    color: blueviolet;
+}
+
+#sendbutton{
+    background: none;
+    border: none;
+}
+
+#sendbutton img{
+    position: absolute;
+    height: 7%;
+    width: auto;
+    bottom: 2%;
+    right: 10vw;
+}
+
+#myMessage{
+    background-color: rgb(96, 130, 182);
+    position: absolute;
+    border-radius: 10px;
+    bottom: 30px;
+    left: 20vw;
+    color: white;
+    border: none;
+    width: 60vw;
+    height: 4%;
+    font-size: 20px;
+}
+
+#messages{
+    font-size: 30px;
+    padding-left: 25vw;
+    list-style: none;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    position: absolute;
+    width: 60%;
+    height: 80%;
+}
