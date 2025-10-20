@@ -1,6 +1,7 @@
 # Web Chat App
 
 A real-time chat application with user authentication built using Flask and WebSocket technology. This was my first full-stack web project featuring a Python backend.
+⚠️ Disclaimer: This is one of my first web apps I made a while ago so most of the implementations are terrbile.
 
 ## 🎥 Demo
 
